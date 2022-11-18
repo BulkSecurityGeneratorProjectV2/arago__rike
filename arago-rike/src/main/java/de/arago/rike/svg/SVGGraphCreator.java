@@ -33,6 +33,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Date;
 import java.util.List;
 import java.util.TreeSet;
@@ -215,7 +216,7 @@ public class SVGGraphCreator {
     }
 
     private static String transformDotToSVG(StringBuilder content) throws IOException, InterruptedException {
-        File file = File.createTempFile("pattern", ".dot");
+        File file = Files.createTempFile("pattern", ".dot").toFile();
 
         new FileWriter(file).append(content.toString()).close();
 
